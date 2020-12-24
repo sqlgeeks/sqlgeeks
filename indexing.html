@@ -32,7 +32,7 @@
   	- There are two types of INDEXES -<br><br>
   	a. <b>Clustered Index</b>: A clustered index physically orders the data according to the columns of an index. There can only be one clustered index on a table (applying a PRIMARY KEY to a column makes it a Clustered Index ) as the rows in the table will be sorted by the order specified in the clustered index. The Clustered indexes are stored as trees where the actual data is stored in the leaf nodes, speeding up the lookup process.<br><br>
   	b. <b>Non-Clustered Index</b>: A non-clustered index also know as B-Tree index are created on top of the actual data. Unlike clustered index, the leaf does not contain the actual data rather the leaf pages of the non clustered index contain the pointers pointing to the clustered index leaf nodes making it slower.(It required some additional disk space)<br>
-  	<img src="./styles/images/index.png" width="800px" height="400px"><br>
+  	<img src="/sqlgeeks/Styles/images/index.png" width="800px" height="400px"><br>
 
   	<div class="example"> You use Clustered Index when you are always required to return data in an ordered manner. Here you can create a clustered index with the required columns of the ORDER BY clause and all the rows of the table are not required to be scanned. <br><br>
  	You use Non-Clustered Index when you want to frequently return records in a specific manner. When you are using a certain column more frequently in the queries creating a Non-Clustered Index will speed up the performance and retrieval.<br>
