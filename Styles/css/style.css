@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+  position: absolute;
+}
+
+.sidenav { 
+  height: auto;
+  max-width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #eae9e9;
+  overflow-x: hidden;
+}
+
+.sidenav a {
+  padding: 12px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: black;
+  background-color: #f1c64d;
+  text-decoration: none;
+}
+
+.main {
+  /*margin-top: 30px;  Same as the width of the sidenav */
+  font-size: 16px; /* Increased text to enable scrolling */
+  margin-left: 120px;
+}
+li{
+  margin-bottom: 10px;
+}
+.example{
+  padding: 15px;
+  background-color: #eae9e9;
+  width: 80%;
+  margin-bottom: 0px 10px;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.footer {
+   
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #eae9e9;;
+   color: black;
+   text-align: center;
+   border: 1px solid;
+   padding-top: 5px;
+   border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 0.5;
+   margin-top: 20px;
+}
+.active
+{
+    background-color: #af4c63;
+}
+#correct
+{
+  color:darkgreen;
+}
+#incorrect
+{
+  color:red;
+}
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #cbe9ec;
+}

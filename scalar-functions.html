@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+  <title>SCALAR FUNCTIONS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/css/style.css">
+<link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+ <div class="sidenav">
+ 	<img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="index.html">Back</a>
+</div>
+<div class="main">
+
+<h5 id="aggregate">1. What are SCALAR Functions</h5>
+<li>A SCALAR function is a user-defined function that takes in one or more parameters and returns a single value each time it is invoked.</li>
+
+<li><b>LEN()</b>: It is  used to return the length of a string/text. The LEN function does not count the trailing spaces while it counts the leading spaces at the start of the string/text. It returns NULL for an empty strings/text.</li><br>
+<div class="example">SELECT LENGTH(FIRSTNAME) FROM EMPLOYEE</div><br>
+
+<li><b>ROUND()</b>: It is  used to round a number to certain places of decimal.</li><br>
+<div class="example">
+<b>SELECT ROUND(187.499,0)</b><br>
+<i>OUTPUT:</i>187 <br><br>
+
+<b>SELECT ROUND(187.599,0)</b><br>
+<i>OUTPUT:</i>188 <br><br>
+
+<b>SELECT ROUND(187.599,1)</b><br>
+<i>OUTPUT:</i>187.6<br><br>
+
+<b>SELECT ROUND(187.586,2)</b><br>
+<i>OUTPUT:</i>187.59<br><br>
+
+<b>SELECT ROUND(187.599,-1)</b><br>
+<i>OUTPUT:</i>190<br><br>
+
+<b>SELECT ROUND(187.599,-2)</b><br>
+<i>OUTPUT:</i>200<br><br>
+
+<b>SELECT ROUND(187.599,-3)</b><br>
+<i>OUTPUT:</i>0<br><br>
+
+<b>SELECT ROUND(687.599,-3)</b><br>
+<i>OUTPUT:</i>1000<br>
+</div>
+<br>
+<li><b>UCASE()</b>: It is  used to convert all alphabetic characters in a input text/string to UPPER-CASE.</li><br>
+<div class="example">SELECT UCASE(EMPNAME) FROM EMPLOYEE;</div><br>
+
+<li><b>LCASE()</b>: It is  used to convert all alphabetic characters in a input text/string to LOWER-CASE.</li><br>
+<div class="example">SELECT LCASE(EMPNAME) FROM EMPLOYEE;</div><br>
+
+<li><b>SUBSTRING()</b>: It is  used to output the substring from the main string.</li><br>
+<div class="example">SELECT SUBSTRING(EMPNAME,1,5) FROM EMPLOYEE<br><br>
+<b>It will output the substring from the 1st character (included) to the 5th character of the string</b></div><br>
+
+<div class="example">SELECT SUBSTRING(EMPNAME,2) FROM EMPLOYEE<br><br>
+<b>It will output the string from the 2nd character (included) till the last character of the string</b></div><br>
+
+<li><b>NOW()</b>: It is  used to return the current data and time in '"YYYY-MM-DD HH:MM:SS"' format.</li><br>
+<div class="example"><b>SELECT NOW()</b><br>
+<i>OUTPUT: </i>2020-12-19 18:33:17<br></div><br><br>
+
+</div>
+</body>
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 

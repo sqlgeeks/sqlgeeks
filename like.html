@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+  <title>LIKE</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/css/style.css">
+<link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+ <div class="sidenav">
+ 	<img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="index.html">Back</a>
+</div>
+<div class="main">
+
+<h5 id="like">1. What is LIKE operator in SQL ? </h5>
+<p>
+	- A LIKE  operator checks whether a specified charater set/string matches a specified pattern. It uses two wildcards ('%' and '_') with itself, where the % represents 0 or more character while an underscore ('_') represents a single character. Examples - <br>
+	a. Find the Names of Employees starting with "H"
+	 <div class="example">SELECT NAME FROM EMPLOYEE WHERE NAME LIKE 'H%' <br></div>
+
+	b. Find the Names of Employees ending with "H"
+	 <div class="example">SELECT NAME FROM EMPLOYEE WHERE NAME LIKE '%H' <br></div>
+
+	c. Find the Names of Employees that have "H" in their name
+	 <div class="example">SELECT NAME FROM EMPLOYEE WHERE NAME LIKE '%H%' <br></div>
+
+	d. Find the Names of Employees that have "H" as the second character
+	 <div class="example">SELECT NAME FROM EMPLOYEE WHERE NAME LIKE '_H%' <br></div>
+
+	e. Find the Names of Employees starting with "H" and is of 4 characters length
+	 <div class="example">SELECT NAME FROM EMPLOYEE WHERE NAME LIKE 'H___' <br>
+	 <h6 id=correct>(The 'H' and 3 underscores makes it of length 4)</h6>
+	 </div>
+
+	f. Find the Names of Employees that starts with "H" and ends with "T"
+	 <div class="example">SELECT NAME FROM EMPLOYEE WHERE NAME LIKE 'H%T' <br></div>
+</p>
+</div>
+</body>
+
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 

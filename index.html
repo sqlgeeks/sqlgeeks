@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+  <title>SQL Interview Questions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./styles/css/style.css">
+  <link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body> 
+<div class="container">
+ <div class="sidenav">
+ 	<img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="#">Basics</a>
+  <a href="scalar-functions.html">Scalar Functions</a>
+  <a href="like.html">LIKE </a>
+  <a href="joins.html">Joins</a>
+  <a href="constraints.html">Constraints</a>
+  <a href="indexing.html">Indexing</a>
+  <a href="normalisation.html">Normalisation</a>
+  <a href="interview-questions-miscellaneous.html">Interview Questions</a>
+</div>
+<div class="main">
+  <h5 id="basics">1. What is a Database ?</h5>
+ <li>It is a collection of related data stored in an organised way to be easily accessed and manipulated.
+For Example - set of student information.</li>
+
+<h5>2. What is a Database Management System ?</h5>
+ <li>It is a software used to manage Database in a more efficient way. For Example - MySQL, Oracle etc. In simple terms, it is the interface between the users and the Database files.</li>
+
+<h5>3. What is a Relational Database Management System ?</h5>
+  <li>It is a type of database management system whose data is stored in the form of tables. It includes functions to  that maintains the integrity, consistency and accuracy of data. For Example - Oracle, MySQL, IBM DB2 etc</li>
+
+<h5>4. What is the order of execution in any SQL statement ?</h5>
+  <li> FROM </li>
+	<li>WHERE </li>
+	<li>[GROUP BY] attributes </li>
+	<li>[HAVING] condition</li>
+	<li>SELECT</li>
+	<li>DISTINCT</li>
+	<li>[ORDER BY] attributes</li>
+
+<h5>5.  What are ALIASES in SQL ?</h5>
+<li>ALIASES in SQL are used to give temporary names to the columns</li>
+<br>
+
+<h5>6. What is DDL, DML, DCL ?</h5>
+<li>A DDL is used to define/modify the structure/definition of a database table and also used to modify the Integrity constraints. For example: CREATE, DROP, ALTER etc.</li>
+<li>A DML is used to modify/access the data records from a database table. For example: INSERT, UPDATE, DELETE etc.</li>
+<li>A DCL is used for data control transaction management and security/access control. For example: COMMIT, ROLLBACK etc.
+</li><br>
+
+<h5>7. What is the difference between DBMS and RDBMS ?</h5>
+<li>DBMS allows one user at a time, while RDBMS allows multiple users at a time.</li>
+<li>DBMS stores data in hierarchal form whereas an RDBMS stores data in the form of tables.</li>
+<li>DBMS does not support integrity constraints while RDBMS supports the integrity constraints.</li>
+<li>DBMS does not support Normalization, while RDBMS does.</li>
+<li>In DBMS fetching data is slow, while it is fast in RDBMS because of its relational approach.</li>
+<li>DBMS does not obey ACID properties while RDBMS do follow.</li><br>
+
+<h5>8. What is the difference between SQL and MySQL ?</h5>
+<li>SQL stands for Structured Query Language and is used for managing the database whereas MySQL is a widely used open source RDBMS</li>
+<br>
+
+<h5>9. What is the difference between SQL and MySQL ?</h5>
+<li>SQL stands for Structured Query Language and is used for managing the database whereas MySQL is a widely used open source RDBMS</li>
+<br>
+
+<h5>10. What are ACID properties ?</h5>
+<li><b>Atomicity:</b> Any transaction in a database might have multiple sub transaction statements. The Atomicity property ensures if any of the sub transaction statements fails then the entire transation should fail and the database state is left unchanged, i.e., all transactions and the sub transaction statements should either succeed completely or fails but not partially.</li>
+
+<li><b>Consistency:</b> It ensures that the data must meet all the data validations rules, constraints and every transaction should result in leaving the database in a stable and consistent state.</li>
+
+<li><b>Isolation:</b> It ensures concurrency control i.e. the concurrent execution of transactions should leave the database in the same state that would have been obtained if the transactions were executed sequentially</li>
+
+<li><b>Durability:</b> It ensures after a successful transaction is completed, all the changes perists regardless of any system failure.</li><br>
+
+<h5>11.  What is view in SQL. How is it different from a table ?</h5>
+<li>Views are virtual tables (definitions) that are built on top of the actual table. Views can be created on top of oneor more tables or views.</li><br>
+
+<div class="example">CREATE <b>VIEW</b> EMP AS <br> SELECT EMPID,EMPNAME,DEPTID FROM EMPLOYEE<br>ORDER BY EMPID<br><br>
+<h6 id=correct>Once the view is created, we can query it like a normal table as below - </h6><br>
+SELECT * FROM EMP </div>
+<br>
+<li>Views do not hold the records themselves, any changes in the underlying table records will be reflected in the view</li>
+<li>Views are faster than the actual table in terms of performance, since it does not contain the underlying data and fetching records is much easier. It does not use any physical memory. </li><br>
+
+<h5 id="nested">12. What are NESTED Queries ? </h5>
+<li> A query within another query is known as nested query. It is of two types:</li><br>
+	a. <b>NESTED QUERY WITH CORELATION</b> - A nested query where the inner query uses attributes defined in outer query. It is executed once for each row processed by outer query. 
+
+	<div class="example">SELECT ID,NAME,SALARY FROM EMPLOYEE AS E WHERE SALARY > <br> (SELECT AVG(SALARY) FROM EMPLOYEE WHERE department=E.department) <br><br>
+	<h6 id=correct>(The above query outputs the name,id and salary of all employee whose salary is greater than the average salary of all the employees working in the same department)</h6>
+	</div><br>
+	b. <b>NESTED QUERY WITHOUT CORELATION</b> - A nested query where the inner query runs independently. The inner query executes first and it passses the results to the outer query.<br><br>
+
+<h5 id="aggregate">13. What are Aggregate Functions</h5>
+	<p>
+	<li>Aggregate functions in SQL are used to group together multiple rows and returns a single value.</li>
+	<li>Aggregate functions computes aggregation of non NULL values. NULL values are not considered for aggregation.</li>
+	<li>Some aggregate functions are MIN,MAX,COUNT,AVG etc</li>
+	<li>The WHERE clause cannot be used on Aggregation (but can be used to filter rows before grouping) because the WHERE clause is executed first and it will result in an error. To avoid this, we use HAVING clause to filter aggregated data.</li>
+	<li>The GROUP BY clause treats NULL as a single value and aggregates for the set.</li>
+   </p>	
+
+
+<h5>14. What is GROUP BY Clause </h5>
+<li>A GROUP By clause is used  to group together records based on specific attributes.</li>
+<li>Every attribute of a GROUP BY Clause must appear in the SELECT Clause.</li><br>
+
+	 <div class="example">
+ 		SELECT A,B <br>
+ 		FROM EMPLOYEE <br>
+ 		GROUP BY A <br><br>
+ 		<h6 id=correct>CORRECT !</h6>
+    </div>
+    <div class="example">
+ 		SELECT B <br>
+ 		FROM EMPLOYEE <br>
+ 		GROUP BY A <br><br>
+ 		<h6 id=incorrect>INCORRECT !</h6>
+    </div><br>
+<li>Aggregated function used in SELECT Clause is computed for each group.</li><br>
+
+<h5>15. What is HAVING Clause </h5>
+	<p>
+	<li>A HAVING clause is used to select groups based on specific condition.</li>
+	<li>HAVING clause must be followed by a GROUP BY clause.</li>
+	<li>A HAVING clause must be over aggregation or over SOME(), EVERY(), ALL().</li><br>
+	 <div class="example">SELECT SALARY <br>FROM EMPLOYEE <br>GROUP BY SALARY <br>HAVING SOME(SALARY) > 10000 <br></div><br>
+	<li>In a HAVING clause direct attribute comparison will not work.</li><br>
+ <div class="example">SELECT SALARY <br>FROM EMPLOYEE <br>GROUP BY SALARY <br>HAVING SALARY > 10000 <br><br>  
+ 		<h6 id=incorrect>INCORRECT !</h6>
+ </div><br>
+
+<h5>16. What is ORDER BY Clause ? </h5>
+	<li>A ORDER BY clause is used to sort the data in ASCENDING order (by default or use ASC keyword) or DESCENDING order (use DESC keyword)</li>
+	<li>In an ORDER BY clause you can sort data based on one or more column.</li>
+	<li>In the below example, the result is first sorted on the basis of NAME coulmn in ASCENDING order and then by AGE in DESCENDING order</li>
+	 <div class="example">SELECT * <br>FROM EMPLOYEE <br>ORDER BY NAME, AGE DESC <br></div><br>
+<br>
+<br>
+</div>
+</body>
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 

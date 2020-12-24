@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+	<title>JOINS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/css/style.css">
+<link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+ <div class="sidenav">
+ 	<img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="index.html">Back</a>
+</div>
+<div class="main">
+
+<h5 id="joins">1. What are JOINS in SQL? </h5>
+	<li>JOINS are used to combine two or more tables by making use of some related column</li>
+	<li><b>INNER JOIN</b> is used to retrieve the matching data between the two tables</li><br>
+	<div class="example">SELECT STUDENT.Name, EMPLOYEE.Salary FROM STUDENT INNER JOIN EMPLOYEE ON STUDENT.Id=EMPLOYEE.Id 
+	<h6 id=correct>(The above query returns records for the Id's in STUDENT table that matches with the Id's in the EMPLOYEE table)</h6>
+	</div><br>
+
+	<li><b>LEFT JOIN</b> is used to retrieve all the data from the left table and the matching data from the right tables</li><br>
+	<div class="example">SELECT STUDENT.Name, EMPLOYEE.Salary FROM STUDENT LEFT JOIN EMPLOYEE ON STUDENT.Id=EMPLOYEE.Id <br></div><br>
+
+	<li><b>RIGHT JOIN</b> is used to retrieve all the data from the right table and the matching data from the left tables.</li><br>
+	<div class="example">SELECT STUDENT.Name, EMPLOYEE.Salary FROM STUDENT RIGHT JOIN EMPLOYEE ON STUDENT.Id=EMPLOYEE.Id <br>
+	</div><br>
+
+	<li><b>FULL JOIN or FULL OUTER JOIN</b> is used to retrieve all the data from both the tables including the unmatching rows. The unmatched columns are filled with NULLS.</li>
+	<li>FULL JOIN is majorly used to understand the overlap between the two tables.</li><br>
+	<div class="example">SELECT STUDENT.Name, EMPLOYEE.Salary FROM STUDENT FULL OUTER JOIN EMPLOYEE ON STUDENT.Id=EMPLOYEE.Id <br><br>
+	</div><br>
+
+	<li><b>SELF JOIN</b> is just like a simple join, where a table is joined with itself. Self Joins are useful for comparisons within table.</li><br>
+
+<h5 id="joins">2. What is the difference between Cross Join and Natural Join ?</h5>
+<li>A CROSS JOIN outputs the cartesian product of two tables i.e. The number of rows in the first table multiplied by the number of rows in the second table produces the Cartesian Product and hence are CROSS JOIN.</li>
+
+<li>An interesting part about using CROSS JOIN is that when a WHERE clause is used with CROSS JOIN, it acts as a INNER JOIN</li>
+
+<li>A NATURAL JOIN on the other hand joins two tables based upon same column names and datatypes.</li>
+
+
+</div>
+</body>
+
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 

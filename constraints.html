@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+	<title>CONSTRAINTS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/css/style.css">
+<link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+ <div class="sidenav">
+ 	<img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="index.html">Back</a>
+</div>
+<div class="main">
+<h5 id="constraints">1. What are Constraints ?</h5>
+  <p>Constraints are like rules used to restrict the type of data inserted into the table, this ensures accuracy and reliability of data in the database.
+  	<li><b>NOT NULL</b>: To restrict NULL values.</li> 
+	<li><b>PRIMARY KEY</b>: To uniquely identify each row in a table.</li><br>
+	<div class="example">
+ 		CREATE TABLE EMPLOYEE (<br>
+ 		EMPID  int(10) <b>PRIMARY KEY</b>,<br>
+ 		NAME varchar(50), <br>
+ 		PHONE int(10) <b>NOT NULL</b> )<br>
+    </div><br>
+	<li><b>FOREIGN EKY</b>: To uniquely identify each row in another table</li><br>
+
+	<div class="example">
+ 		CREATE TABLE EMPLOYEE (<br>
+ 		EMPID  int(10) <b>PRIMARY KEY</b>,<br>
+ 		NAME varchar(50), <br>
+ 		PHONE int(10) <b>NOT NULL</b> )<br><br><br>
+
+
+ 		CREATE TABLE COMPANY (<br>
+ 		CID  int(10) <b>PRIMARY KEY</b>,<br>
+ 		CNAME varchar(50), <br>
+ 		<b>FOREIGN KEY</b> ID REFERENCES EMPLOYEE(EMPID) ) <br>
+    </div><br>
+	<li><b>CHECK</b>: Ensures that the values of the column meet a particular condition.</li><br>
+	<div class="example">
+ 		CREATE TABLE EMPLOYEE (<br>
+ 		EMPID  int(10) <b>PRIMARY KEY</b>,<br>
+ 		NAME varchar(50), <br>
+ 		AGE int <b>CHECK </b>(AGE>18))<br>
+    </div><br>
+	<li><b>UNIQUE</b>: To allow only unique values in a column.</li>
+	<li><b>DEFAULT</b>: It specifies a default value for that column.</li><br>
+
+	<div class="example">
+ 		CREATE TABLE EMPLOYEE (<br>
+ 		EMPID  int(10) <b>PRIMARY KEY</b>,<br>
+ 		NAME varchar(50), <br>
+ 		AGE int <b>DEFAULT </b>18 )<br>
+    </div>
+</div>
+</body>
+
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 

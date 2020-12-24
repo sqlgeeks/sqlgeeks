@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+  <title>INDEXING</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/css/style.css">
+<link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+ <div class="sidenav">
+  <img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="index.html">Back</a>
+</div>
+<div class="main">
+
+ <h5 id="indexing">1. What is INDEX in SQL ?</h5>
+  <p> - INDEXES are used to speed up the retrieval of rows from the table or view.<br>
+  	- INDEXES are helpful in case where there are thousands of records and we need to find records for one or more combination of columns. The normal way takes a longer time but with the help of indexes the records can be fetched very quickly. 
+  	<div class="example">CREATE INDEX EMP ON EMPLOYEE(EMPLOYEE_CITY)<br><br>
+  	CREATE INDEX EMP ON EMPLOYEE(EMPLOYEE_CITY,EMPLOYEE_COUNTRY)<br>
+  	<h6 id=correct>(Creating Index using one or more columns).</h6>
+  	</div><br>
+  	- There are two types of INDEXES -<br><br>
+  	a. <b>Clustered Index</b>: A clustered index physically orders the data according to the columns of an index. There can only be one clustered index on a table (applying a PRIMARY KEY to a column makes it a Clustered Index ) as the rows in the table will be sorted by the order specified in the clustered index. The Clustered indexes are stored as trees where the actual data is stored in the leaf nodes, speeding up the lookup process.<br><br>
+  	b. <b>Non-Clustered Index</b>: A non-clustered index also know as B-Tree index are created on top of the actual data. Unlike clustered index, the leaf does not contain the actual data rather the leaf pages of the non clustered index contain the pointers pointing to the clustered index leaf nodes making it slower.(It required some additional disk space)<br>
+  	<img src="./styles/images/index.png" width="800px" height="400px"><br>
+
+  	<div class="example"> You use Clustered Index when you are always required to return data in an ordered manner. Here you can create a clustered index with the required columns of the ORDER BY clause and all the rows of the table are not required to be scanned. <br><br>
+ 	You use Non-Clustered Index when you want to frequently return records in a specific manner. When you are using a certain column more frequently in the queries creating a Non-Clustered Index will speed up the performance and retrieval.<br>
+  	</div><br>
+  </p>
+</div>
+</body>
+
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 

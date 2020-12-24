@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+  <title>NORMALISATION</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/css/style.css">
+<link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+ <div class="sidenav">
+ 	<img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="index.html">Back</a>
+</div>
+<div class="main">
+
+<h5><u>Normalisation</u></h5>
+<p>
+	- Normalisation is a way of orgainising the data in the database so as to reduce or eliminate data redundancy from a relation.The different forms of Normalisation are : -<br><br>
+
+	<h5>a. <u>First Normal Form (1 NF)</u></h5><br>
+
+	- A relation R is in 1 NF iff there is no Multi-valued attributes in the relation.<br>
+	- Every attribute of relation R must be atomic (single valued).<br><br>
+	Ex:
+
+	A relation R is defined as below -
+
+	<table>
+		 <tr>
+		    <th>S_ID</th>
+		    <th>S_Name</th>
+		    <th>C_ID</th>
+ 		</tr>
+ 		<tr>
+		    <td>S1</td>
+		    <td>A</td>
+		    <td>C1 / C2</td>
+ 		</tr>
+ 		<tr>
+		    <td>S2</td>
+		    <td>B</td>
+		    <td>C2 / C3</td>
+ 		</tr>
+ 		<tr>
+		    <td>S3</td>
+		    <td>B</td>
+		    <td>C3</td>
+ 		</tr>
+	</table>
+
+	<br> The above relation is not in 1NF since it contains multivalued attributes. It can corrected as below so as to satisfy the 1 NF condition. <br><br>
+
+		<table>
+		 <tr>
+		    <th>S_ID</th>
+		    <th>S_Name</th>
+		    <th>C_ID</th>
+ 		</tr>
+ 		<tr>
+		    <td>S1</td>
+		    <td>A</td>
+		    <td>C1</td>
+ 		</tr>
+ 		<tr>
+		    <td>S1</td>
+		    <td>A</td>
+		    <td>C2</td>
+ 		</tr>
+ 		<tr>
+		    <td>S2</td>
+		    <td>B</td>
+		    <td>C2</td>
+ 		</tr>
+ 		<tr>
+		    <td>S2</td>
+		    <td>B</td>
+		    <td>C3</td>
+ 		</tr>
+ 		<tr>
+		    <td>S3</td>
+		    <td>B</td>
+		    <td>C3</td>
+ 		</tr>
+	</table>
+
+	<br> - Degree of redundancy is very high in 1 NF <br>
+</p>
+
+
+<h5>a. <u>Second Normal Form (2 NF)</u></h5>
+
+	<li>A relation R is in 2 NF iff there is no <b>Partial  Dependencies</b> in R.</li>
+	<li>A Partial Dependency is said to exists if "proper subset of a candidiate key is dependent on the non-prime attribute"</li><br>
+
+<h5>a. <u>Third Normal Form (3 NF)</u></h5>
+
+	<li>A relation R is in 3 NF iff every non-trivial Functional Dependency X -> Y in R with - <br>
+		a. &nbsp X must be a Super Key.</li>
+			 OR <br>
+		b. &nbsp Y must be a prime attribute.<br>
+
+	<li>In simple terms,</li>
+		a. &nbsp[Super Key] -> Prime/Non Prime Attributes<br>
+		b. &nbsp[Not Super Key] -> Prime Attributes.<br>
+	</li><br>
+
+<h5>a. <u>Boyce Codd Normal Form (BCNF)</u></h5>
+
+	<li>A relation R is in 3 NF iff every non-trivial Functional Dependency X -> Y in R with <b>X must be a Super Key</b>.</li>
+	<li>In simple terms, [Super Key] -> Prime/Non Prime Attributes</li>
+</div>
+</body>
+
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 

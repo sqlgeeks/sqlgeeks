@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="SQL Interview Questions">
+  <meta name="keywords" content="SQL Geeks, SQL Interview, Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment,  Interview Questions">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta property="og:description" content="Database, Aggregate Functions, Scalar Functions, Like, Joins, Nested Queries, Constraints, Indexing, Normalisation, Miscellaneous,Views, Partitioning, Union, Round, Store Procedure, Variable, Auto-increment" />
+  <title>INTERVIEW QUESTIONS MISCELLANEOUS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/css/style.css">
+<link rel="stylesheet" href="./styles/css/bootstrap-min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+ <div class="sidenav">
+ 	<img src="./styles/images/logo.jpg" style="width:auto;height: 80px;">
+  <a href="index.html">Back</a>
+</div>
+<div class="main">
+
+<h5>1. What is the difference between DELETE and TRUNCATE ?</h5>
+<li>A DELETE (DML command) command is used to delete each row one and one and makes an entry for each and every deletion in the transaction logs, which can be used for Rollback operation.</li>
+<li>A TRUNCATE (DCL command) command is used to remove all the records from the table. It can't be rolled back. (Truncate is not possible if the table is referenced by a Foreign Key)</li><br>
+
+<h5>2. What is the difference between WHERE and HAVING Clause ?</h5>
+<li>A WHERE clause is used to filter the data in a query before grouping while a HAVING clause is used to used filter the data after grouping.</li>
+<li>A WHERE clause cannot contain aggregate function (SUM,MIN,MAX etc) while a HAVING clause may contain the aggregate functions.</li>
+<li>A WHERE clause can be used with SELECT, DELETE, UPDATE etc. while a HAVING clause can only be used with SELECT.</li>
+<br>
+
+<h5>3. What is the difference between UNION and UNION ALL ?</h5>
+<li> A UNION operator is used to combine the results of two or more SELECT statements and removes duplicates from the OUTPUT of the Select statement.</li>
+<li>A UNION ALL operator is also used to combine the results of two or more SELECT statements and <b>does not remove</b> duplicates from the OUTPUT of the Select statement.</li>
+<li>A UNION or UNION ALL operator works as long as the number of columns and their data types are same.</li>
+<br>
+
+<h5>4. What is the difference between UNION and JOIN ?</h5>
+<li> Both UNION and JOIN is used to combine data from one or more tables into a single table, but a JOIN between one or more tables will result into new columns whereas a UNION between one or more tables will result into new rows.</li>
+<img src="./styles/images/join.png" width="800px" height="350px">
+<img src="./styles/images/union.png" width="800px" height="400px">
+<br>
+
+<h5>5.  What is MINUS and INTERSECT ?</h5>
+<li>The MINUS operator returns all the rows in the first SELECT statement that are not returned by the second one.</li><br>
+<div class="example">SELECT EMPID FROM EMPLOYEE <br> MINUS <br> SELECT EMPID FROM DEPARTMENT</div><br>
+
+<li>The INTERSECT operator return the records that exists in the both the SELECT statements.</li><br>
+<div class="example">SELECT EMPID FROM EMPLOYEE <br> INTERSECT <br> SELECT EMPID FROM DEPARTMENT</div>
+
+<br><br>
+
+<h5>6.  What is PARTITIONING ?</h5>
+<li>In a database partitioning, large tables are splitted into multiple small tables. The purpose of partitioning is to divide the data so that it can be easily accessed and reduces the response time, since there is less data to scan now.</li>
+<li>We can use the <b>SQL PARTITION BY</b> clause with the OVER clause to specify the column on which we need to perform aggregation.</li><br>
+
+<div class="example">
+SELECT NAME,ID,<br>
+&nbsp;&nbsp; AVG(SALARY) OVER(<b>PARTITION BY</b> CITY) AS AVGSALARY,<br>
+&nbsp;&nbsp; MIN(SALARY) OVER(<b>PARTITION BY</b> CITY) AS MINSALARY,<br>
+&nbsp;&nbsp; MAX(SALARY) OVER(<b>PARTITION BY</b> CITY) AS MAXSALARY,<br>
+FROM EMPLOYEE<br>
+</div><br>
+
+<h5>7.  What is CASE and TRIGGERS ?</h5>
+<li>A CASE statement is just like an IF/THEN condition in SQL. It simply breaks down complex SQL statements to simple IF/THEN statements which is easy to read and write. </li><br>
+
+<div class="example">SELECT EMPID,EMPNAME,<br>CASE<br>&nbsp;&nbsp;&nbsp;WHEN EXPERIENCE < 2 THEN 'JUNIOR DEVELOPER'<br>&nbsp;&nbsp;&nbsp;WHEN EXPERIENCE > 2 THEN 'SENIOR DEVELOPER'<br>&nbsp;&nbsp;&nbsp;ELSE 'DEVELOPER'<br>END AS POSITION<br>FROM EMPLOYEE;<br><br>
+<h6 id=correct>The WHEN condition statement checks for conditions and assigns values accordingly, if all the WHEN conditions statement are FALSE the ELSE condition statement executes. The END AS assign the result to the column named 'POSITION' </h6><br>
+</div>
+<br>
+<li>TRIGEERS are a piece of code that is executed automatically when a certain event occurs in a database.</li>
+<li>TRIGEERS are usually fired in response to DML (INSERT, UPDATE, or DELETE) or a DDL (CREATE, ALTER, and DROP) event.</li>
+<li>BEFORE TRIGEERS are executed before the data has been committed to the database while AFTER TRIGEERS execute after the data has been inserted or updated in the database.</li>
+<br>
+
+<h5>8.  What is STORED PROCEDURE ?</h5>
+A STORED PROCEDURE is a group of pre-compiled SQL statements stored in the DBMS and performs some specific task. The main advantages of Stored Procedure are - 
+<li>It allows <b>faster execution</b> as the large SQL statements are pre-compiled and a compiled version of the stored procedure remains in a memory cache for later use. Thus, reducing the re-compilation time and hence results in faster execution time.</li>
+<li>It reduces <b>network traffic</b> as the large set of SQL statements are grouped into a STORED PROCEDURE. Hence, it becomes easier to run a Stored Procedure rather than hundreds of line of code.</li>
+<li>In terms of <b>security</b> , the users can provide permissions to execute a Stored Procedure.</li>
+<br>
+
+<div class="example">CREATE <b>PROCEDURE</b> EMP AS <br> SELECT * EMPLOYEE<br>GO;<br><br>
+<h6 id=correct>Once the Stored Procedure is created, we can query it as below - </h6>
+EXEC EMP </div>
+<br>
+
+<h5>9.  What is VARIABLE in SQL ?</h5>
+<li>A VARIABLE is an object holding a data value of some data type.</li><br>
+<div class="example"><b>DECLARE</b> @TEST as VARCHAR(5)='Hello'<br>
+PRINT @TEST<br></div><br>
+
+<h5>10.  What is AUTO-INCREMENT ?</h5>
+<li>The AUTO-INCREMENT feature is used to automatically generate a numerical values whenever there is a new record inserted into the table.</li><br>
+<div class="example"><b><u>MYSQL</u> -</b><br>
+CREATE TABLE EMP (<br> EMPID INT NOT NULL <b>AUTO_INCREMENT</b><br> EMPNAME VARCHAR(100) )<br><br>
+
+<b><u>SQL SERVER</u> -</b><br>
+CREATE TABLE EMP (<br> EMPID INT <b>IDENTITY(1,1)</b><br> EMPNAME VARCHAR(100) )
+</div><br>
+
+<h5>11. What is the difference between PRIMARY KEY and UNIQUE KEY ?</h5>
+<li>A Primary Key is used to uniquely identify each row in a table. Each table can have only one a NON NULL Primary key</li>
+<li>A Unique Key is also used to uniquely identify each row in a table. But in comparison to Primary Key,a table can have more than one Unique Key. It is also used as a UNIQUE constraint while creating tables so that only unique records are inserted into the table (It can accept only one NULL value for a column)</li><br>
+
+<h5>12. What is the difference between CHAR and VARCHAR2 datatype ?</h5>
+<li>CHAR is used for storing strings of fixed length. It used in places where the length of the strings is always same otherwise there will be a wastage of disk space. It is faster than VARCHAR and uses static memmory allocation.</li>
+<li>A VARCHAR on the other hand is used for storing strings of variable length. It used in places where the length of the strings is variable always and hence saves a lot of disk space.It is slower than CHAR and uses dynamic memmory allocation.</li><br>
+
+<h5>13. Why VARCHAR2 is preferred over NUMBER datatype while storing numbers ?</h5>
+<li>Consider a situation where you need to store the Pincode of different cities. Many cities might have Pincode starting with a zero like "02345". When we use NUMBER as a datatype for such columns and we query it, it ends up giving as "2345" as the result and the leading zero is lost, but with the use of VARCHAR2 datatype, you can retain your leading zeros</li>
+
+<li>Another point to remember while choosing  between NUMBER and VARCHAR2 as a datatype is that, if you want to perform arithmetic operations on the column values you should choose NUMBER otherwise VARCHAR2 as the datatype.</li>
+<br>
+
+<h5>14. What is the difference between NULL value or zero or blank space ?</h5>
+<li>A NULL value represents a value which is not known or unavailable.</li>
+<li>On the other hand, zero is a number and a blank space is a character.</li><br>
+
+<h5>15. Differentiate 'BETWEEN' and 'IN' operator ?</h5>
+<li>BETWEEN is used to select values within a given range while IN is used to match a column or an expression againts a list of values.</li><br>
+
+
+</body>
+<div class="footer">
+   Please share your feedback at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   You can also share your SQL Interview experience at <a href="mailto:hege@example.com">hege@example.com</a><br>
+   All rights reserved - SQL Geeks.</p>
+</div>
+</html> 
